@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rätsel 27 von 27 – Sinas Geburtstag!</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/puzzle.css">
+  <style>body{background-image:url('../images/riddle27.jpeg');}</style>
+</head>
+<body>
+  <div class="ticker-wrap"><div class="ticker">
+    <span class="r">★</span><span class="o"> LETZES RÄTSEL!! </span>
+    <span class="g">★</span><span class="b"> RÄTSEL 27 VON 27 </span><span class="p">★</span>
+    <span class="r">★</span><span class="o"> DU SCHAFFST DAS!! </span>
+    <span class="g">★</span><span class="b"> RÄTSEL 27 VON 27 </span><span class="p">★</span>
+  </div></div>
+  <div class="stars-layer" id="starsLayer"></div>
+  <div class="puzzle-progress-wrap">
+    <div class="puzzle-progress-label">Rätsel 27 von 27 – Das Finale!</div>
+    <div class="puzzle-progress-bar"><div class="puzzle-progress-fill" id="progressFill"></div></div>
+  </div>
+  <a href="../index.html" class="home-btn">🏠 Zurück</a>
+  <div class="puzzle-main"><div class="puzzle-card">
+    <div class="puzzle-type-badge">🧠 Das letzte Rätsel</div>
+    <h2 class="puzzle-title">Wer bin ich?</h2>
+    <p class="puzzle-flavor">Das letzte Rätsel verbirgt etwas, das dir sehr nahe ist.</p>
+    <div class="puzzle-question">
+      Ich bestehe aus zwei altgriechischen Wörtern.<br><br>
+      Das erste bedeutet <strong style="color:#00ffcc">"Wort"</strong> oder <strong style="color:#00ffcc">"Sprache"</strong> — es steckt in <em>Monolog</em> und <em>Dialog</em>.<br><br>
+      Das zweite bedeutet <strong style="color:#ffff00">"Erziehung"</strong>.<br><br>
+      <span style="color:#ff00ff">Was bin ich?</span>
+    </div>
+    <input type="text" id="answerInput" class="puzzle-input" placeholder="Deine Antwort...">
+    <button class="puzzle-submit-btn" id="submitBtn">✓ Antwort prüfen</button>
+    <div class="puzzle-error" id="errorMsg"></div>
+  </div></div>
+  <div class="win-overlay" id="winOverlay"><div class="win-content">
+    <div style="font-size:4rem">🏆</div>
+    <div class="win-text">GESCHAFFT!! 🎊</div>
+  </div></div>
+  <div class="tool-bar">
+    <button id="caesarBtn">🔐 Caesar</button>
+    <button id="calcBtn">🧮 Rechner</button>
+  </div>
+  <div class="tool-modal" id="caesarModal">
+    <div class="tool-modal-title">🔐 Caesar <button class="tool-modal-close" id="caesarClose">✕</button></div>
+    <label>Text:</label><input type="text" id="caesarInput" placeholder="Geheimtext...">
+    <label>Verschiebung:</label><input type="number" id="caesarShift" value="-7" min="-25" max="25">
+    <label>Ergebnis:</label><input type="text" id="caesarOutput" class="tool-output" readonly>
+  </div>
+  <div class="tool-modal" id="calcModal">
+    <div class="tool-modal-title">🧮 Rechner <button class="tool-modal-close" id="calcClose">✕</button></div>
+    <label>Rechnung:</label><input type="text" id="calcInput" placeholder="z.B. 3 * 9">
+    <button class="tool-run" id="calcCompute">= Berechnen</button>
+    <div class="tool-output" id="calcResult"></div>
+  </div>
+  <script src="../js/puzzle-engine.js"></script>
+  <script>
+    initPuzzle({
+      number:27, answer:'Logopädie',
+      altAnswers:['logopädie','Logopaedie','logopaedie'],
+      nextUrl:'../congrats.html',
+      hint:'Was steckt in Monolog und Dialog? Was ist Sinas Traumberuf mit 9 Buchstaben?'
+    });
+  </script>
+</body></html>

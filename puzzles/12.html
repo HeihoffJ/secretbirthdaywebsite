@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rätsel 12 von 27 – Sinas Geburtstag!</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/puzzle.css">
+  <style>body{background-image:url('../images/riddle12.jpeg');}</style>
+</head>
+<body>
+  <div class="ticker-wrap"><div class="ticker">
+    <span class="r">★</span><span class="o"> HAPPY BIRTHDAY SINA </span>
+    <span class="g">★</span><span class="b"> RÄTSEL 12 VON 27 </span><span class="p">★</span>
+    <span class="r">★</span><span class="o"> HAPPY BIRTHDAY SINA </span>
+    <span class="g">★</span><span class="b"> RÄTSEL 12 VON 27 </span><span class="p">★</span>
+  </div></div>
+  <div class="stars-layer" id="starsLayer"></div>
+  <div class="puzzle-progress-wrap">
+    <div class="puzzle-progress-label">Rätsel 12 von 27</div>
+    <div class="puzzle-progress-bar"><div class="puzzle-progress-fill" id="progressFill"></div></div>
+  </div>
+  <a href="../index.html" class="home-btn">🏠 Zurück</a>
+  <div class="puzzle-main"><div class="puzzle-card">
+    <div class="puzzle-type-badge">🧠 Logik</div>
+    <h2 class="puzzle-title">Manhunt – Erweitert</h2>
+    <p class="puzzle-flavor">Das Spiel beginnt — aber diesmal ist es komplizierter als sonst.</p>
+    <div class="puzzle-question">
+      <strong style="color:#00ffcc">16 Spieler</strong> verstecken sich. Es gibt <strong style="color:#ffff00">2 Jäger</strong>:<br><br>
+      <span style="color:#ffff99">• Jäger A findet jede Runde ¼ der noch freien Spieler.</span><br>
+      <span style="color:#ffff99">• Jäger B findet danach ⅓ der dann noch Verbleibenden.</span><br><br>
+      Nach <strong style="color:#ff00ff">2 vollständigen Runden</strong>: Wie viele Spieler sind noch frei?
+    </div>
+    <input type="text" id="answerInput" class="puzzle-input" placeholder="Deine Antwort (Zahl)...">
+    <button class="puzzle-submit-btn" id="submitBtn">✓ Antwort prüfen</button>
+    <div class="puzzle-error" id="errorMsg"></div>
+  </div></div>
+  <div class="win-overlay" id="winOverlay"><div class="win-content">
+    <div style="font-size:4rem">🎉</div>
+    <div class="win-text">Richtig!! Weiter geht's...</div>
+  </div></div>
+  <div class="tool-bar">
+    <button id="caesarBtn">🔐 Caesar</button>
+    <button id="calcBtn">🧮 Rechner</button>
+  </div>
+  <div class="tool-modal" id="caesarModal">
+    <div class="tool-modal-title">🔐 Caesar <button class="tool-modal-close" id="caesarClose">✕</button></div>
+    <label>Text:</label><input type="text" id="caesarInput" placeholder="Geheimtext...">
+    <label>Verschiebung:</label><input type="number" id="caesarShift" value="-7" min="-25" max="25">
+    <label>Ergebnis:</label><input type="text" id="caesarOutput" class="tool-output" readonly>
+  </div>
+  <div class="tool-modal" id="calcModal">
+    <div class="tool-modal-title">🧮 Rechner <button class="tool-modal-close" id="calcClose">✕</button></div>
+    <label>Rechnung:</label><input type="text" id="calcInput" placeholder="z.B. 3 * 9">
+    <button class="tool-run" id="calcCompute">= Berechnen</button>
+    <div class="tool-output" id="calcResult"></div>
+  </div>
+  <script src="../js/puzzle-engine.js"></script>
+  <script>
+    initPuzzle({
+      number:12, answer:'4', altAnswers:[],
+      nextUrl:'13.html',
+      hint:'Runde 1: 16 → A fängt 4 → 12 → B fängt 4 → 8. Runde 2: 8 → A fängt 2 → 6 → B fängt 2 → ?'
+    });
+  </script>
+</body></html>

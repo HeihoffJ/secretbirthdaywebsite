@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rätsel 15 von 27 – Sinas Geburtstag!</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/puzzle.css">
+  <style>body{background-image:url('../images/riddle15.jpeg');}</style>
+</head>
+<body>
+  <div class="ticker-wrap"><div class="ticker">
+    <span class="r">★</span><span class="o"> HAPPY BIRTHDAY SINA </span>
+    <span class="g">★</span><span class="b"> RÄTSEL 15 VON 27 </span><span class="p">★</span>
+    <span class="r">★</span><span class="o"> HAPPY BIRTHDAY SINA </span>
+    <span class="g">★</span><span class="b"> RÄTSEL 15 VON 27 </span><span class="p">★</span>
+  </div></div>
+  <div class="stars-layer" id="starsLayer"></div>
+  <div class="puzzle-progress-wrap">
+    <div class="puzzle-progress-label">Rätsel 15 von 27</div>
+    <div class="puzzle-progress-bar"><div class="puzzle-progress-fill" id="progressFill"></div></div>
+  </div>
+  <a href="../index.html" class="home-btn">🏠 Zurück</a>
+  <div class="puzzle-main"><div class="puzzle-card">
+    <div class="puzzle-type-badge">🧠 Logik</div>
+    <h2 class="puzzle-title">Duftkerzen-Logik</h2>
+    <p class="puzzle-flavor">Drei Kerzen, drei verschiedene Brennzeiten — nur eine interessiert uns.</p>
+    <div class="puzzle-question">
+      <span style="color:#ffff99">• Vanille</span> brennt <strong>dreimal so lange</strong> wie Lavendel.<br>
+      <span style="color:#ffff99">• Sandelholz</span> brennt <strong>halb so lange wie Vanille</strong>, plus 2 Stunden.<br>
+      <span style="color:#ffff99">• Alle drei zusammen</span> brennen <strong style="color:#00ffcc">24 Stunden</strong>.<br><br>
+      Wie viele Stunden brennt <strong style="color:#ff00ff">Sandelholz</strong>?
+    </div>
+    <input type="text" id="answerInput" class="puzzle-input" placeholder="Deine Antwort (Stunden)...">
+    <button class="puzzle-submit-btn" id="submitBtn">✓ Antwort prüfen</button>
+    <div class="puzzle-error" id="errorMsg"></div>
+  </div></div>
+  <div class="win-overlay" id="winOverlay"><div class="win-content">
+    <div style="font-size:4rem">🎉</div>
+    <div class="win-text">Richtig!! Weiter geht's...</div>
+  </div></div>
+  <div class="tool-bar">
+    <button id="caesarBtn">🔐 Caesar</button>
+    <button id="calcBtn">🧮 Rechner</button>
+  </div>
+  <div class="tool-modal" id="caesarModal">
+    <div class="tool-modal-title">🔐 Caesar <button class="tool-modal-close" id="caesarClose">✕</button></div>
+    <label>Text:</label><input type="text" id="caesarInput" placeholder="Geheimtext...">
+    <label>Verschiebung:</label><input type="number" id="caesarShift" value="-7" min="-25" max="25">
+    <label>Ergebnis:</label><input type="text" id="caesarOutput" class="tool-output" readonly>
+  </div>
+  <div class="tool-modal" id="calcModal">
+    <div class="tool-modal-title">🧮 Rechner <button class="tool-modal-close" id="calcClose">✕</button></div>
+    <label>Rechnung:</label><input type="text" id="calcInput" placeholder="z.B. 3 * 9">
+    <button class="tool-run" id="calcCompute">= Berechnen</button>
+    <div class="tool-output" id="calcResult"></div>
+  </div>
+  <script src="../js/puzzle-engine.js"></script>
+  <script>
+    initPuzzle({
+      number:15, answer:'8', altAnswers:['8 Stunden','8h'],
+      nextUrl:'16.html',
+      hint:'Lavendel=x, Vanille=3x, Sandelholz=3x/2+2. Setze ein: x+3x+3x/2+2=24 → löse nach x.'
+    });
+  </script>
+</body></html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rätsel 5 von 27 – Sinas Geburtstag!</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/puzzle.css">
+  <style>body{background-image:url('../images/riddle5.jpg');}</style>
+</head>
+<body>
+  <div class="ticker-wrap"><div class="ticker">
+    <span class="r">★</span><span class="o"> HAPPY BIRTHDAY SINA </span>
+    <span class="g">★</span><span class="b"> RÄTSEL 5 VON 27 </span><span class="p">★</span>
+    <span class="r">★</span><span class="o"> HAPPY BIRTHDAY SINA </span>
+    <span class="g">★</span><span class="b"> RÄTSEL 5 VON 27 </span><span class="p">★</span>
+  </div></div>
+  <div class="stars-layer" id="starsLayer"></div>
+  <div class="puzzle-progress-wrap">
+    <div class="puzzle-progress-label">Rätsel 5 von 27</div>
+    <div class="puzzle-progress-bar"><div class="puzzle-progress-fill" id="progressFill"></div></div>
+  </div>
+  <a href="../index.html" class="home-btn">🏠 Zurück</a>
+  <div class="puzzle-main"><div class="puzzle-card">
+    <div class="puzzle-type-badge">🔷 Pattern</div>
+    <h2 class="puzzle-title">Formenwandel</h2>
+    <p class="puzzle-flavor">Jede Form verliert etwas — was kommt am Ende?</p>
+    <div class="puzzle-svg-wrap">
+      <svg viewBox="0 0 470 90" xmlns="http://www.w3.org/2000/svg" width="440" height="85" style="overflow:visible">
+        <!-- Labels -->
+        <text x="40" y="86" text-anchor="middle" fill="#aaa" font-size="10" font-family="monospace">6 Seiten</text>
+        <text x="120" y="86" text-anchor="middle" fill="#aaa" font-size="10" font-family="monospace">5 Seiten</text>
+        <text x="205" y="86" text-anchor="middle" fill="#aaa" font-size="10" font-family="monospace">4 Seiten</text>
+        <text x="290" y="86" text-anchor="middle" fill="#aaa" font-size="10" font-family="monospace">3 Seiten</text>
+        <text x="390" y="86" text-anchor="middle" fill="#ff00ff" font-size="10" font-family="monospace">? Seiten</text>
+        <!-- Hexagon -->
+        <polygon points="40,12 64,26 64,54 40,68 16,54 16,26" fill="none" stroke="#00ffcc" stroke-width="2.5"/>
+        <!-- Arrow -->
+        <line x1="72" y1="40" x2="83" y2="40" stroke="#888" stroke-width="1.5"/>
+        <polygon points="83,36 91,40 83,44" fill="#888" stroke="none"/>
+        <!-- Pentagon -->
+        <polygon points="120,12 147,31 137,63 103,63 93,31" fill="none" stroke="#ffff00" stroke-width="2.5"/>
+        <!-- Arrow -->
+        <line x1="155" y1="40" x2="166" y2="40" stroke="#888" stroke-width="1.5"/>
+        <polygon points="166,36 174,40 166,44" fill="#888" stroke="none"/>
+        <!-- Square -->
+        <polygon points="180,15 230,15 230,65 180,65" fill="none" stroke="#ff00ff" stroke-width="2.5"/>
+        <!-- Arrow -->
+        <line x1="238" y1="40" x2="249" y2="40" stroke="#888" stroke-width="1.5"/>
+        <polygon points="249,36 257,40 249,44" fill="#888" stroke="none"/>
+        <!-- Triangle -->
+        <polygon points="290,12 318,60 262,60" fill="none" stroke="#ff8800" stroke-width="2.5"/>
+        <!-- Arrow -->
+        <line x1="326" y1="40" x2="337" y2="40" stroke="#888" stroke-width="1.5"/>
+        <polygon points="337,36 345,40 337,44" fill="#888" stroke="none"/>
+        <!-- Question box -->
+        <rect x="358" y="12" width="64" height="56" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="5,3" rx="4"/>
+        <text x="390" y="50" text-anchor="middle" fill="#ff00ff" font-size="34" font-weight="bold" font-family="Impact">?</text>
+      </svg>
+    </div>
+    <div class="puzzle-question">Was kommt nach dem Dreieck? (Welche Form hat noch weniger Seiten?)</div>
+    <input type="text" id="answerInput" class="puzzle-input" placeholder="Deine Antwort...">
+    <button class="puzzle-submit-btn" id="submitBtn">✓ Antwort prüfen</button>
+    <div class="puzzle-error" id="errorMsg"></div>
+  </div></div>
+  <div class="win-overlay" id="winOverlay"><div class="win-content">
+    <div style="font-size:4rem">🎉</div>
+    <div class="win-text">Richtig!! Weiter geht's...</div>
+  </div></div>
+  <div class="tool-bar">
+    <button id="caesarBtn">🔐 Caesar</button>
+    <button id="calcBtn">🧮 Rechner</button>
+  </div>
+  <div class="tool-modal" id="caesarModal">
+    <div class="tool-modal-title">🔐 Caesar <button class="tool-modal-close" id="caesarClose">✕</button></div>
+    <label>Text:</label><input type="text" id="caesarInput" placeholder="Geheimtext...">
+    <label>Verschiebung:</label><input type="number" id="caesarShift" value="-7" min="-25" max="25">
+    <label>Ergebnis:</label><input type="text" id="caesarOutput" class="tool-output" readonly>
+  </div>
+  <div class="tool-modal" id="calcModal">
+    <div class="tool-modal-title">🧮 Rechner <button class="tool-modal-close" id="calcClose">✕</button></div>
+    <label>Rechnung:</label><input type="text" id="calcInput" placeholder="z.B. 3 * 9">
+    <button class="tool-run" id="calcCompute">= Berechnen</button>
+    <div class="tool-output" id="calcResult"></div>
+  </div>
+  <script src="../js/puzzle-engine.js"></script>
+  <script>
+    initPuzzle({ number:5, answer:'Kreis', altAnswers:['kreis','circle','Kugel'], nextUrl:'06.html'});
+  </script>
+</body></html>

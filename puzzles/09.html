@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rätsel 9 von 27 – Sinas Geburtstag!</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/puzzle.css">
+  <style>
+    body{background-image:url('../images/riddle9.jpeg');}
+    .nono-table td, .nono-table th { width:40px; height:40px; }
+  </style>
+</head>
+<body>
+  <div class="ticker-wrap"><div class="ticker">
+    <span class="r">★</span><span class="o"> HAPPY BIRTHDAY SINA </span>
+    <span class="g">★</span><span class="b"> RÄTSEL 9 VON 27 </span><span class="p">★</span>
+    <span class="r">★</span><span class="o"> HAPPY BIRTHDAY SINA </span>
+    <span class="g">★</span><span class="b"> RÄTSEL 9 VON 27 </span><span class="p">★</span>
+  </div></div>
+  <div class="stars-layer" id="starsLayer"></div>
+  <div class="puzzle-progress-wrap">
+    <div class="puzzle-progress-label">Rätsel 9 von 27</div>
+    <div class="puzzle-progress-bar"><div class="puzzle-progress-fill" id="progressFill"></div></div>
+  </div>
+  <a href="../index.html" class="home-btn">🏠 Zurück</a>
+  <div class="puzzle-main"><div class="puzzle-card">
+    <div class="puzzle-type-badge">🟦 Nonogram</div>
+    <h2 class="puzzle-title">Nonogram ♪</h2>
+    <p class="puzzle-flavor">Klick auf die Zellen, um sie zu füllen. Löse das 5×5-Nonogram — was zeigt es?</p>
+    <div class="nono-wrap">
+      <table class="nono-table" id="nonoGrid">
+        <thead>
+          <tr>
+            <td class="nono-corner"></td>
+            <th class="nono-hint">2</th>
+            <th class="nono-hint">5</th>
+            <th class="nono-hint">1</th>
+            <th class="nono-hint">1</th>
+            <th class="nono-hint">1</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th class="nono-hint">4</th><td class="nono-cell" data-r="0" data-c="0"></td><td class="nono-cell" data-r="0" data-c="1"></td><td class="nono-cell" data-r="0" data-c="2"></td><td class="nono-cell" data-r="0" data-c="3"></td><td class="nono-cell" data-r="0" data-c="4"></td></tr>
+          <tr><th class="nono-hint">1</th><td class="nono-cell" data-r="1" data-c="0"></td><td class="nono-cell" data-r="1" data-c="1"></td><td class="nono-cell" data-r="1" data-c="2"></td><td class="nono-cell" data-r="1" data-c="3"></td><td class="nono-cell" data-r="1" data-c="4"></td></tr>
+          <tr><th class="nono-hint">1</th><td class="nono-cell" data-r="2" data-c="0"></td><td class="nono-cell" data-r="2" data-c="1"></td><td class="nono-cell" data-r="2" data-c="2"></td><td class="nono-cell" data-r="2" data-c="3"></td><td class="nono-cell" data-r="2" data-c="4"></td></tr>
+          <tr><th class="nono-hint">2</th><td class="nono-cell" data-r="3" data-c="0"></td><td class="nono-cell" data-r="3" data-c="1"></td><td class="nono-cell" data-r="3" data-c="2"></td><td class="nono-cell" data-r="3" data-c="3"></td><td class="nono-cell" data-r="3" data-c="4"></td></tr>
+          <tr><th class="nono-hint">2</th><td class="nono-cell" data-r="4" data-c="0"></td><td class="nono-cell" data-r="4" data-c="1"></td><td class="nono-cell" data-r="4" data-c="2"></td><td class="nono-cell" data-r="4" data-c="3"></td><td class="nono-cell" data-r="4" data-c="4"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="puzzle-question">Was zeigt das fertige Nonogram?</div>
+    <input type="text" id="answerInput" class="puzzle-input" placeholder="Deine Antwort...">
+    <button class="puzzle-submit-btn" id="submitBtn">✓ Antwort prüfen</button>
+    <div class="puzzle-error" id="errorMsg"></div>
+  </div></div>
+  <div class="win-overlay" id="winOverlay"><div class="win-content">
+    <div style="font-size:4rem">🎉</div>
+    <div class="win-text">Richtig!! Weiter geht's...</div>
+  </div></div>
+  <div class="tool-bar">
+    <button id="caesarBtn">🔐 Caesar</button>
+    <button id="calcBtn">🧮 Rechner</button>
+  </div>
+  <div class="tool-modal" id="caesarModal">
+    <div class="tool-modal-title">🔐 Caesar <button class="tool-modal-close" id="caesarClose">✕</button></div>
+    <label>Text:</label><input type="text" id="caesarInput" placeholder="Geheimtext...">
+    <label>Verschiebung:</label><input type="number" id="caesarShift" value="-7" min="-25" max="25">
+    <label>Ergebnis:</label><input type="text" id="caesarOutput" class="tool-output" readonly>
+  </div>
+  <div class="tool-modal" id="calcModal">
+    <div class="tool-modal-title">🧮 Rechner <button class="tool-modal-close" id="calcClose">✕</button></div>
+    <label>Rechnung:</label><input type="text" id="calcInput" placeholder="z.B. 3 * 9">
+    <button class="tool-run" id="calcCompute">= Berechnen</button>
+    <div class="tool-output" id="calcResult"></div>
+  </div>
+  <script>
+    document.querySelectorAll('.nono-cell').forEach(cell => {
+      cell.addEventListener('click', () => cell.classList.toggle('filled'));
+    });
+  </script>
+  <script src="../js/puzzle-engine.js"></script>
+  <script>
+    initPuzzle({
+      number:9, answer:'Note',
+      altAnswers:['note','Musiknote','musiknote','♩','♪'],
+      nextUrl:'10.html',
+      hint:'Schau dir die ausgefüllten Zellen an — der Notenkopf sitzt unten links, der Stiel geht nach oben.'
+    });
+  </script>
+</body></html>

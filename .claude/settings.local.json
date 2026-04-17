@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -l \"hint\" /Users/admin/Documents/SinasBirthdayWebsite/puzzles/[0-9][0-9].html)",
+      "Bash(sed -i '' \"s/, hint:'Manchmal ist das Erste, was man denkt, das Richtige.'//g\" 04.html)",
+      "Bash(sed -i '' \"s/, hint:'Große Sexte über C = A. Welche Durtonart beginnt auf A?'//g\" 08.html)",
+      "Bash(sed -i '' \"s/, hint:'Schau dir die ausgefüllten Zellen an — der Notenkopf sitzt unten links, der Stiel geht nach oben.'//g\" 09.html)",
+      "Bash(sed -i '' \"s/, hint:'\\\\\"ter\\\\\" = dreimal, \\\\\"novem\\\\\" = neun — 3 × 9 = ?'//g\" 10.html)",
+      "Bash(gh auth *)"
+    ]
+  }
+}

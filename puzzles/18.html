@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rätsel 18 von 27 – Sinas Geburtstag!</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/puzzle.css">
+  <style>body{background-image:url('../images/riddle18.jpeg');}</style>
+</head>
+<body>
+  <div class="ticker-wrap"><div class="ticker">
+    <span class="r">★</span><span class="o"> HAPPY BIRTHDAY SINA </span>
+    <span class="g">★</span><span class="b"> RÄTSEL 18 VON 27 </span><span class="p">★</span>
+    <span class="r">★</span><span class="o"> HAPPY BIRTHDAY SINA </span>
+    <span class="g">★</span><span class="b"> RÄTSEL 18 VON 27 </span><span class="p">★</span>
+  </div></div>
+  <div class="stars-layer" id="starsLayer"></div>
+  <div class="puzzle-progress-wrap">
+    <div class="puzzle-progress-label">Rätsel 18 von 27</div>
+    <div class="puzzle-progress-bar"><div class="puzzle-progress-fill" id="progressFill"></div></div>
+  </div>
+  <a href="../index.html" class="home-btn">🏠 Zurück</a>
+  <div class="puzzle-main"><div class="puzzle-card">
+    <div class="puzzle-type-badge">🎵 Musiktheorie</div>
+    <h2 class="puzzle-title">Paralleltonart</h2>
+    <p class="puzzle-flavor">Moll und Dur können sehr enge Verwandte sein...</p>
+    <div class="puzzle-question">
+      Ein Lied steht in <strong style="color:#ff00ff">h-Moll</strong>.<br><br>
+      Wie heißt die <strong style="color:#00ffcc">parallele Durtonart</strong>?<br><br>
+      <em style="color:#aaccff;font-size:0.85rem">(Parallel = gleiche Vorzeichen, unterschiedlicher Grundton)</em>
+    </div>
+    <input type="text" id="answerInput" class="puzzle-input" placeholder="z.B. C-Dur">
+    <button class="puzzle-submit-btn" id="submitBtn">✓ Antwort prüfen</button>
+    <div class="puzzle-error" id="errorMsg"></div>
+  </div></div>
+  <div class="win-overlay" id="winOverlay"><div class="win-content">
+    <div style="font-size:4rem">🎉</div>
+    <div class="win-text">Richtig!! Weiter geht's...</div>
+  </div></div>
+  <div class="tool-bar">
+    <button id="caesarBtn">🔐 Caesar</button>
+    <button id="calcBtn">🧮 Rechner</button>
+  </div>
+  <div class="tool-modal" id="caesarModal">
+    <div class="tool-modal-title">🔐 Caesar <button class="tool-modal-close" id="caesarClose">✕</button></div>
+    <label>Text:</label><input type="text" id="caesarInput" placeholder="Geheimtext...">
+    <label>Verschiebung:</label><input type="number" id="caesarShift" value="-7" min="-25" max="25">
+    <label>Ergebnis:</label><input type="text" id="caesarOutput" class="tool-output" readonly>
+  </div>
+  <div class="tool-modal" id="calcModal">
+    <div class="tool-modal-title">🧮 Rechner <button class="tool-modal-close" id="calcClose">✕</button></div>
+    <label>Rechnung:</label><input type="text" id="calcInput" placeholder="z.B. 3 * 9">
+    <button class="tool-run" id="calcCompute">= Berechnen</button>
+    <div class="tool-output" id="calcResult"></div>
+  </div>
+  <script src="../js/puzzle-engine.js"></script>
+  <script>
+    initPuzzle({
+      number:18, answer:'D-Dur',
+      altAnswers:['d-dur','D','d','D Dur','d dur'],
+      nextUrl:'19.html',
+      hint:'h-Moll hat 2 Kreuze (Fis und Cis). Welche Durtonart teilt diese Vorzeichen?'
+    });
+  </script>
+</body></html>

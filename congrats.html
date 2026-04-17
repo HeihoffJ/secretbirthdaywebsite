@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🎉 GESCHAFFT!! – Sinas Geburtstag</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background: url('images/congrats.png') center center / cover fixed no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .congrats-card {
+      position: relative;
+      z-index: 2;
+      background: rgba(0, 0, 40, 0.85);
+      border: 4px solid #ffff00;
+      box-shadow: 0 0 40px #ffff0088, 0 0 80px #ff00ff44;
+      padding: 40px 36px 32px;
+      max-width: 560px;
+      width: 90%;
+      text-align: center;
+      font-family: 'Comic Sans MS', cursive;
+      backdrop-filter: blur(8px);
+    }
+    .congrats-title {
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-family: Impact, 'Arial Black', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      animation: rainbow-shift 1s linear infinite;
+      text-shadow: 3px 3px 0 #000;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .congrats-sub {
+      color: #aaccff;
+      font-size: 1rem;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .ticket-wrap {
+      margin: 20px 0;
+      border: 3px solid #ff00ff;
+      box-shadow: 0 0 20px #ff00ff66;
+      background: #000;
+      overflow: hidden;
+    }
+    .ticket-wrap img {
+      width: 100%;
+      display: block;
+    }
+    .ticket-label {
+      color: #ffff00;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      text-shadow: 1px 1px 0 #000;
+    }
+    .restart-btn {
+      margin-top: 24px;
+      background: linear-gradient(135deg, #ff00ff, #8800ff);
+      color: #fff;
+      font-family: 'Comic Sans MS', cursive;
+      font-size: 0.95rem;
+      font-weight: bold;
+      border: 2px solid #ffff00;
+      padding: 10px 28px;
+      cursor: pointer;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 0 15px #ff00ff88, 3px 3px 0 #000;
+      transition: transform 0.1s;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .restart-btn:hover { transform: scale(1.05); }
+    .restart-btn:active { transform: scale(0.97); }
+    .home-link {
+      display: block;
+      margin-top: 14px;
+      color: #888;
+      font-size: 0.8rem;
+      text-decoration: none;
+    }
+    .home-link:hover { color: #fff; }
+    .star-count {
+      color: #ffff00;
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="ticker-wrap"><div class="ticker">
+    <span class="r">★</span><span class="o"> HERZLICHEN GLÜCKWUNSCH SINA!! </span>
+    <span class="g">★</span><span class="b"> 27 RÄTSEL GELÖST!! </span><span class="p">★</span>
+    <span class="r">★</span><span class="o"> HAPPY BIRTHDAY!! </span>
+    <span class="g">★</span><span class="b"> DU BIST UNGLAUBLICH!! </span><span class="p">★</span>
+  </div></div>
+
+  <div class="stars-layer" id="starsLayer"></div>
+
+  <div class="congrats-card">
+    <div class="congrats-title">🏆 Geschafft!! 🏆</div>
+    <p class="congrats-sub">
+      Du hast alle 27 Rätsel gelöst — Logik, Musik, Latein, Caesar-Chiffren und persönliche Geheimnisse.<br>
+      Das war nicht einfach. Du bist außergewöhnlich, Sina. 🌟
+    </p>
+    <div class="ticket-label">🎫 Dein Geschenk wartet auf dich:</div>
+    <div class="ticket-wrap">
+      <img src="images/congrats.png" alt="Konzerttickets – Dein Geburtstagsgeschenk!">
+    </div>
+    <div class="star-count">⭐ 27 von 27 Rätseln gelöst ⭐</div>
+    <button class="restart-btn" onclick="restart()">🔄 Von vorne starten</button>
+    <a href="index.html" class="home-link">← Zurück zur Hauptseite</a>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Big confetti celebration on load
+    const CONFETTI_COLORS = [
+      '#ff0000','#ff4400','#ff8800','#ffcc00','#ffff00',
+      '#00ff00','#00ffcc','#0088ff','#8800ff','#ff00ff',
+      '#ff44aa','#ffffff','#ff6699','#66ffff'
+    ];
+    const CONFETTI_SHAPES = ['2px','50%','0'];
+    function boom(x, y) {
+      for (let i = 0; i < 88; i++) {
+        const el = document.createElement('div');
+        el.className = 'confetti-piece';
+        const w = 6 + Math.random() * 10, h = 8 + Math.random() * 16;
+        const color = CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)];
+        const shape = CONFETTI_SHAPES[Math.floor(Math.random() * CONFETTI_SHAPES.length)];
+        el.style.cssText = `--w:${w}px;--h:${h}px;--color:${color};--br:${shape};--dur:${1.5+Math.random()*2}s;--top:${y}px;--left:${x}px;--fdx:${(Math.random()-0.5)*window.innerWidth*1.4}px;--fdr:${Math.random()*1440-720}deg`;
+        el.style.animationDelay = (Math.random() * 0.4) + 's';
+        document.body.appendChild(el);
+        el.addEventListener('animationend', () => el.remove());
+      }
+    }
+    setTimeout(() => boom(window.innerWidth/2, window.innerHeight/3), 300);
+    setTimeout(() => boom(window.innerWidth*0.1, -10), 500);
+    setTimeout(() => boom(window.innerWidth*0.9, -10), 700);
+    setTimeout(() => boom(window.innerWidth/2, -10), 900);
+    setTimeout(() => boom(window.innerWidth*0.3, window.innerHeight/2), 1200);
+    setTimeout(() => boom(window.innerWidth*0.7, window.innerHeight/2), 1400);
+
+    function restart() {
+      localStorage.removeItem('sina_bday_unlocked');
+      window.location.href = 'puzzles/01.html';
+    }
+  </script>
+</body>
+</html>

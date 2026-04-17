@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rätsel 13 von 27 – Sinas Geburtstag!</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/puzzle.css">
+  <style>body{background-image:url('../images/riddle13.jpeg');}</style>
+</head>
+<body>
+  <div class="ticker-wrap"><div class="ticker">
+    <span class="r">★</span><span class="o"> HAPPY BIRTHDAY SINA </span>
+    <span class="g">★</span><span class="b"> RÄTSEL 13 VON 27 </span><span class="p">★</span>
+    <span class="r">★</span><span class="o"> HAPPY BIRTHDAY SINA </span>
+    <span class="g">★</span><span class="b"> RÄTSEL 13 VON 27 </span><span class="p">★</span>
+  </div></div>
+  <div class="stars-layer" id="starsLayer"></div>
+  <div class="puzzle-progress-wrap">
+    <div class="puzzle-progress-label">Rätsel 13 von 27</div>
+    <div class="puzzle-progress-bar"><div class="puzzle-progress-fill" id="progressFill"></div></div>
+  </div>
+  <a href="../index.html" class="home-btn">🏠 Zurück</a>
+  <div class="puzzle-main"><div class="puzzle-card">
+    <div class="puzzle-type-badge">👤 Schattenrätsel</div>
+    <h2 class="puzzle-title">Schattenrätsel</h2>
+    <p class="puzzle-flavor">Welches Objekt wirft diesen Schatten?</p>
+
+    <!-- Shadow silhouette -->
+    <div class="puzzle-svg-wrap" style="margin-bottom:12px;">
+      <svg viewBox="0 0 80 120" width="100" height="150" xmlns="http://www.w3.org/2000/svg">
+        <!-- Microphone silhouette (shadow) -->
+        <ellipse cx="40" cy="28" rx="20" ry="24" fill="#222"/>
+        <rect x="36" y="52" width="8" height="16" fill="#222"/>
+        <rect x="28" y="68" width="24" height="18" rx="4" fill="#222"/>
+        <rect x="34" y="86" width="12" height="18" fill="#222"/>
+        <rect x="22" y="104" width="36" height="8" rx="3" fill="#222"/>
+      </svg>
+    </div>
+
+    <div class="puzzle-question" style="margin-bottom:10px;">Welches Objekt erzeugt diesen Schatten? (A–D)</div>
+
+    <!-- Four objects as radio options -->
+    <div class="option-grid">
+      <!-- A: Mikrofon -->
+      <div class="option-item">
+        <svg viewBox="0 0 60 90" width="70" height="90" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="30" cy="22" rx="15" ry="18" fill="none" stroke="#00ffcc" stroke-width="2"/>
+          <line x1="30" y1="40" x2="30" y2="52" stroke="#00ffcc" stroke-width="3"/>
+          <rect x="20" y="52" width="20" height="14" rx="3" fill="none" stroke="#00ffcc" stroke-width="2"/>
+          <line x1="30" y1="66" x2="30" y2="76" stroke="#00ffcc" stroke-width="2"/>
+          <line x1="18" y1="76" x2="42" y2="76" stroke="#00ffcc" stroke-width="2"/>
+          <!-- Grid lines on head -->
+          <line x1="15" y1="16" x2="45" y2="16" stroke="#00ffcc" stroke-width="0.8" opacity="0.5"/>
+          <line x1="15" y1="22" x2="45" y2="22" stroke="#00ffcc" stroke-width="0.8" opacity="0.5"/>
+          <line x1="15" y1="28" x2="45" y2="28" stroke="#00ffcc" stroke-width="0.8" opacity="0.5"/>
+        </svg>
+        <label><input type="radio" name="answer" value="A"> A – Mikrofon</label>
+      </div>
+
+      <!-- B: Gitarre -->
+      <div class="option-item">
+        <svg viewBox="0 0 60 90" width="70" height="90" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="30" cy="70" rx="18" ry="16" fill="none" stroke="#ffff00" stroke-width="2"/>
+          <ellipse cx="30" cy="38" rx="11" ry="10" fill="none" stroke="#ffff00" stroke-width="2"/>
+          <!-- Waist -->
+          <line x1="19" y1="45" x2="12" y2="58" stroke="#ffff00" stroke-width="2"/>
+          <line x1="41" y1="45" x2="48" y2="58" stroke="#ffff00" stroke-width="2"/>
+          <line x1="12" y1="58" x2="12" y2="60" stroke="#ffff00" stroke-width="2"/>
+          <line x1="48" y1="58" x2="48" y2="60" stroke="#ffff00" stroke-width="2"/>
+          <!-- Neck -->
+          <rect x="27" y="5" width="6" height="34" fill="none" stroke="#ffff00" stroke-width="2"/>
+          <!-- Sound hole -->
+          <circle cx="30" cy="70" r="5" fill="none" stroke="#ffff00" stroke-width="1.5"/>
+          <!-- Strings -->
+          <line x1="30" y1="8" x2="30" y2="54" stroke="#ffff00" stroke-width="0.6" opacity="0.6"/>
+        </svg>
+        <label><input type="radio" name="answer" value="B"> B – Gitarre</label>
+      </div>
+
+      <!-- C: Kerze -->
+      <div class="option-item">
+        <svg viewBox="0 0 60 90" width="70" height="90" xmlns="http://www.w3.org/2000/svg">
+          <!-- Flame -->
+          <ellipse cx="30" cy="14" rx="7" ry="12" fill="none" stroke="#ff8800" stroke-width="2"/>
+          <!-- Candle body -->
+          <rect x="21" y="24" width="18" height="55" rx="3" fill="none" stroke="#ff00ff" stroke-width="2"/>
+          <!-- Wick -->
+          <line x1="30" y1="24" x2="30" y2="18" stroke="#ff00ff" stroke-width="2"/>
+          <!-- Drip -->
+          <path d="M25,30 Q24,36 25,40" fill="none" stroke="#ff00ff" stroke-width="1.5"/>
+        </svg>
+        <label><input type="radio" name="answer" value="C"> C – Kerze</label>
+      </div>
+
+      <!-- D: Blume -->
+      <div class="option-item">
+        <svg viewBox="0 0 60 90" width="70" height="90" xmlns="http://www.w3.org/2000/svg">
+          <!-- Stem -->
+          <line x1="30" y1="90" x2="30" y2="45" stroke="#44ff44" stroke-width="2.5"/>
+          <!-- Leaf -->
+          <path d="M30,65 Q18,58 22,50 Q28,58 30,65" fill="none" stroke="#44ff44" stroke-width="1.5"/>
+          <!-- Center -->
+          <circle cx="30" cy="30" r="8" fill="none" stroke="#ffff00" stroke-width="2"/>
+          <!-- Petals -->
+          <ellipse cx="30" cy="14" rx="6" ry="10" fill="none" stroke="#ff00ff" stroke-width="1.5"/>
+          <ellipse cx="30" cy="46" rx="6" ry="10" fill="none" stroke="#ff00ff" stroke-width="1.5"/>
+          <ellipse cx="14" cy="30" rx="10" ry="6" fill="none" stroke="#ff00ff" stroke-width="1.5"/>
+          <ellipse cx="46" cy="30" rx="10" ry="6" fill="none" stroke="#ff00ff" stroke-width="1.5"/>
+          <ellipse cx="19" cy="19" rx="7" ry="7" fill="none" stroke="#ff00ff" stroke-width="1.5"/>
+          <ellipse cx="41" cy="19" rx="7" ry="7" fill="none" stroke="#ff00ff" stroke-width="1.5"/>
+        </svg>
+        <label><input type="radio" name="answer" value="D"> D – Blume</label>
+      </div>
+    </div>
+
+    <button class="puzzle-submit-btn" id="submitBtn">✓ Antwort prüfen</button>
+    <div class="puzzle-error" id="errorMsg"></div>
+  </div></div>
+  <div class="win-overlay" id="winOverlay"><div class="win-content">
+    <div style="font-size:4rem">🎉</div>
+    <div class="win-text">Richtig!! Weiter geht's...</div>
+  </div></div>
+  <div class="tool-bar">
+    <button id="caesarBtn">🔐 Caesar</button>
+    <button id="calcBtn">🧮 Rechner</button>
+  </div>
+  <div class="tool-modal" id="caesarModal">
+    <div class="tool-modal-title">🔐 Caesar <button class="tool-modal-close" id="caesarClose">✕</button></div>
+    <label>Text:</label><input type="text" id="caesarInput" placeholder="Geheimtext...">
+    <label>Verschiebung:</label><input type="number" id="caesarShift" value="-7" min="-25" max="25">
+    <label>Ergebnis:</label><input type="text" id="caesarOutput" class="tool-output" readonly>
+  </div>
+  <div class="tool-modal" id="calcModal">
+    <div class="tool-modal-title">🧮 Rechner <button class="tool-modal-close" id="calcClose">✕</button></div>
+    <label>Rechnung:</label><input type="text" id="calcInput" placeholder="z.B. 3 * 9">
+    <button class="tool-run" id="calcCompute">= Berechnen</button>
+    <div class="tool-output" id="calcResult"></div>
+  </div>
+  <script src="../js/puzzle-engine.js"></script>
+  <script>
+    initPuzzle({
+      number:13, answer:'A', altAnswers:[],
+      nextUrl:'14.html',
+      hint:'Der Schatten zeigt einen runden Kopf mit Griff und Standfuß — ein klassisches Bühneninstrument.'
+    });
+  </script>
+</body></html>

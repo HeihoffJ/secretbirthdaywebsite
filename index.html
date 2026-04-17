@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>HAPPY BIRTHDAY SINA!!! ★</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top ticker -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span class="r">★</span><span class="o"> HERZLICHEN GLÜCKWUNSCH </span>
+      <span class="g">★</span><span class="b"> HAPPY BIRTHDAY SINA </span>
+      <span class="p">★</span>
+      <span class="r">★</span><span class="o"> HERZLICHEN GLÜCKWUNSCH </span>
+      <span class="g">★</span><span class="b"> HAPPY BIRTHDAY SINA </span>
+      <span class="p">★</span>
+    </div>
+  </div>
+
+  <!-- Floating stars -->
+  <div class="stars-layer" id="starsLayer"></div>
+
+  <!-- Main content -->
+  <div class="main">
+    <h1 class="rainbow-title" id="title">Herzlichen<br>Glückwunsch!</h1>
+
+    <button class="guestbook-btn" id="guestbookBtn">📖 Gästebuch öffnen</button>
+  </div>
+
+  <!-- Guestbook modal -->
+  <div class="modal-overlay" id="guestbookOverlay">
+    <div class="modal">
+      <div class="modal-titlebar">
+        <span>📖 Gästebuch – Herzlichen Glückwunsch Sina!!!</span>
+        <button class="modal-close" id="guestbookClose">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="gb-header">✨ Was deine Freunde sagen ✨</div>
+        <div id="guestbookList"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data/guestbook-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/guestbook.js"></script>
+</body>
+</html>
