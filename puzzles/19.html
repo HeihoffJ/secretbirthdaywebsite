@@ -30,11 +30,7 @@
       <span style="color:#ffff99">• 2 Achtelnoten</span><br><br>
       Ist der Takt <strong>voll</strong>, <strong>nicht voll</strong>, oder <strong>übervoll</strong>?
     </div>
-    <div class="radio-options">
-      <label><input type="radio" name="answer" value="voll"> Genau voll (= 4 Schläge)</label>
-      <label><input type="radio" name="answer" value="nicht voll"> Nicht voll (weniger als 4 Schläge)</label>
-      <label><input type="radio" name="answer" value="übervoll"> Übervoll (mehr als 4 Schläge)</label>
-    </div>
+    <input type="text" id="answerInput" class="puzzle-input" placeholder="Deine Antwort...">
     <button class="puzzle-submit-btn" id="submitBtn">✓ Antwort prüfen</button>
     <div class="puzzle-error" id="errorMsg"></div>
   </div></div>
@@ -62,7 +58,7 @@
   <script>
     initPuzzle({
       number:19, answer:'übervoll',
-      altAnswers:['Übervoll','zu voll','überfüllt'],
+      altAnswers:['Übervoll'],
       nextUrl:'20.html',
       hint:'Punktierte Halbe = 3 Schläge, Viertel = 1, 2 Achtel = 1. Summe = 5 Schläge. Aber 4/4 hat nur 4!'
     });

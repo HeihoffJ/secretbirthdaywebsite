@@ -46,7 +46,7 @@ function normalize(str) {
 }
 
 function initPuzzle(config) {
-  const { number, answer, nextUrl, altAnswers = [] } = config;
+  const { number, answer, nextUrl, altAnswers = [], validate, manualAdvance = false } = config;
 
   // ── Chain guard via URL param (works on file:// across all browsers) ──
   const params = new URLSearchParams(window.location.search);
@@ -117,6 +117,10 @@ function initPuzzle(config) {
   }
 
   function checkAnswer() {
+    if (validate) {
+      if (validate()) onCorrect(); else onWrong();
+      return;
+    }
     const raw = getInputValue().trim();
     console.log(`[PuzzleEngine] checkAnswer: raw="${raw}"`);
     if (!raw) { console.log('[PuzzleEngine] Empty input, ignoring.'); return; }
@@ -159,12 +163,13 @@ function initPuzzle(config) {
     setTimeout(() => spawnConfettiBurst(window.innerWidth * 0.5, -10),  270);
     const overlay = document.getElementById('winOverlay');
     if (overlay) overlay.classList.add('show');
-    // Pass unlock level via URL param — works on file:// across all browsers
     const next = number + 1;
     const separator = nextUrl.includes('?') ? '&' : '?';
     const destination = nextUrl + separator + 'u=' + next;
-    console.log(`[PuzzleEngine] ✅ Correct! Navigating to: ${destination}`);
-    setTimeout(() => { window.location.href = destination; }, 2600);
+    console.log(`[PuzzleEngine] ✅ Correct! ${manualAdvance ? 'Manual advance.' : 'Navigating to: ' + destination}`);
+    if (!manualAdvance) {
+      setTimeout(() => { window.location.href = destination; }, 2600);
+    }
   }
 
   if (submitBtn) submitBtn.addEventListener('click', checkAnswer);

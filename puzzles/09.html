@@ -6,7 +6,40 @@
   <link rel="stylesheet" href="../css/puzzle.css">
   <style>
     body{background-image:url('../images/riddle9.jpeg');}
-    .nono-table td, .nono-table th { width:40px; height:40px; }
+    .sudoku-wrap { overflow-x:auto; display:flex; justify-content:center; margin:0.8rem 0; }
+    table.sudoku { border-collapse:collapse; }
+    table.sudoku td {
+      width:36px; height:36px;
+      border:1px solid #99aacc;
+      padding:0; text-align:center; vertical-align:middle;
+      background:#ffffffcc;
+    }
+    table.sudoku td:nth-child(3n)   { border-right: 3px solid #334; }
+    table.sudoku td:nth-child(3n+1) { border-left:  3px solid #334; }
+    table.sudoku tr:nth-child(3n)   td { border-bottom: 3px solid #334; }
+    table.sudoku tr:nth-child(3n+1) td { border-top:    3px solid #334; }
+    table.sudoku td.given {
+      font-weight:900; font-size:1.2rem; color:#1a1a6e;
+      font-family:'Comic Sans MS', cursive;
+    }
+    table.sudoku td input.cell-input {
+      width:100%; height:100%; border:none; outline:none;
+      background:transparent; text-align:center;
+      font-size:1.1rem; color:#d63cff;
+      font-family:'Comic Sans MS', cursive;
+      cursor:pointer;
+    }
+    table.sudoku td.flash-wrong { animation:flash-red 0.45s ease; }
+    @keyframes flash-red { 0%,100%{background:#ffffffcc} 50%{background:#ff444488} }
+    .win-btn {
+      margin-top:1rem; padding:0.7rem 2rem;
+      font-size:1.2rem; font-family:'Comic Sans MS', cursive;
+      background:linear-gradient(135deg,#ff69b4,#ff1493);
+      color:white; border:none; border-radius:12px;
+      cursor:pointer; box-shadow:0 4px 12px #ff69b488;
+      animation:pulse-btn 1.2s infinite alternate;
+    }
+    @keyframes pulse-btn { from{transform:scale(1)} to{transform:scale(1.07)} }
   </style>
 </head>
 <body>
@@ -23,38 +56,19 @@
   </div>
   <a href="../index.html" class="home-btn">🏠 Zurück</a>
   <div class="puzzle-main"><div class="puzzle-card">
-    <div class="puzzle-type-badge">🟦 Nonogram</div>
-    <h2 class="puzzle-title">Nonogram ♪</h2>
-    <p class="puzzle-flavor">Klick auf die Zellen, um sie zu füllen. Löse das 5×5-Nonogram — was zeigt es?</p>
-    <div class="nono-wrap">
-      <table class="nono-table" id="nonoGrid">
-        <thead>
-          <tr>
-            <td class="nono-corner"></td>
-            <th class="nono-hint">2</th>
-            <th class="nono-hint">5</th>
-            <th class="nono-hint">1</th>
-            <th class="nono-hint">1</th>
-            <th class="nono-hint">1</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><th class="nono-hint">4</th><td class="nono-cell" data-r="0" data-c="0"></td><td class="nono-cell" data-r="0" data-c="1"></td><td class="nono-cell" data-r="0" data-c="2"></td><td class="nono-cell" data-r="0" data-c="3"></td><td class="nono-cell" data-r="0" data-c="4"></td></tr>
-          <tr><th class="nono-hint">1</th><td class="nono-cell" data-r="1" data-c="0"></td><td class="nono-cell" data-r="1" data-c="1"></td><td class="nono-cell" data-r="1" data-c="2"></td><td class="nono-cell" data-r="1" data-c="3"></td><td class="nono-cell" data-r="1" data-c="4"></td></tr>
-          <tr><th class="nono-hint">1</th><td class="nono-cell" data-r="2" data-c="0"></td><td class="nono-cell" data-r="2" data-c="1"></td><td class="nono-cell" data-r="2" data-c="2"></td><td class="nono-cell" data-r="2" data-c="3"></td><td class="nono-cell" data-r="2" data-c="4"></td></tr>
-          <tr><th class="nono-hint">2</th><td class="nono-cell" data-r="3" data-c="0"></td><td class="nono-cell" data-r="3" data-c="1"></td><td class="nono-cell" data-r="3" data-c="2"></td><td class="nono-cell" data-r="3" data-c="3"></td><td class="nono-cell" data-r="3" data-c="4"></td></tr>
-          <tr><th class="nono-hint">2</th><td class="nono-cell" data-r="4" data-c="0"></td><td class="nono-cell" data-r="4" data-c="1"></td><td class="nono-cell" data-r="4" data-c="2"></td><td class="nono-cell" data-r="4" data-c="3"></td><td class="nono-cell" data-r="4" data-c="4"></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="puzzle-question">Was zeigt das fertige Nonogram?</div>
-    <input type="text" id="answerInput" class="puzzle-input" placeholder="Deine Antwort...">
-    <button class="puzzle-submit-btn" id="submitBtn">✓ Antwort prüfen</button>
+    <div class="puzzle-type-badge">🔢 Sudoku</div>
+    <h2 class="puzzle-title">Zahlenrätsel</h2>
+    <p class="puzzle-flavor">Jede Zahl von 1–9 kommt in jeder Zeile, Spalte und jedem 3×3-Block genau einmal vor. Füll das Rätsel aus und prüf dann deine Lösung!</p>
+    <div class="sudoku-wrap"><table class="sudoku" id="sudokuGrid"></table></div>
+    <p style="font-size:0.8rem;color:#aaa;margin:0.3rem 0 0.6rem;">Lila = deine Eingabe &nbsp;·&nbsp; Dunkelblau = vorgegeben</p>
+    <input type="text" id="answerInput" style="display:none">
+    <button class="puzzle-submit-btn" id="submitBtn">✓ Lösung prüfen</button>
     <div class="puzzle-error" id="errorMsg"></div>
   </div></div>
   <div class="win-overlay" id="winOverlay"><div class="win-content">
     <div style="font-size:4rem">🎉</div>
-    <div class="win-text">Richtig!! Weiter geht's...</div>
+    <div class="win-text">Perfekt gelöst!!</div>
+    <button class="win-btn" id="advanceBtn">Weiter → Rätsel 10</button>
   </div></div>
   <div class="tool-bar">
     <button id="caesarBtn">🔐 Caesar</button>
@@ -73,17 +87,95 @@
     <div class="tool-output" id="calcResult"></div>
   </div>
   <script>
-    document.querySelectorAll('.nono-cell').forEach(cell => {
-      cell.addEventListener('click', () => cell.classList.toggle('filled'));
+    const GIVEN = [
+      [5,3,0, 0,7,0, 0,0,0],
+      [6,0,0, 1,9,5, 0,0,0],
+      [0,9,8, 0,0,0, 0,6,0],
+      [8,0,0, 0,6,0, 0,0,3],
+      [4,0,0, 8,0,3, 0,0,1],
+      [7,0,0, 0,2,0, 0,0,6],
+      [0,6,0, 0,0,0, 2,8,0],
+      [0,0,0, 4,1,9, 0,0,5],
+      [0,0,0, 0,8,0, 0,7,9]
+    ];
+    const SOLUTION = [
+      [5,3,4, 6,7,8, 9,1,2],
+      [6,7,2, 1,9,5, 3,4,8],
+      [1,9,8, 3,4,2, 5,6,7],
+      [8,5,9, 7,6,1, 4,2,3],
+      [4,2,6, 8,5,3, 7,9,1],
+      [7,1,3, 9,2,4, 8,5,6],
+      [9,6,1, 5,3,7, 2,8,4],
+      [2,8,7, 4,1,9, 6,3,5],
+      [3,4,5, 2,8,6, 1,7,9]
+    ];
+
+    const table = document.getElementById('sudokuGrid');
+    for (let r = 0; r < 9; r++) {
+      const tr = table.insertRow();
+      for (let c = 0; c < 9; c++) {
+        const td = tr.insertCell();
+        const v = GIVEN[r][c];
+        if (v !== 0) {
+          td.className = 'given';
+          td.textContent = v;
+        } else {
+          const inp = document.createElement('input');
+          inp.className = 'cell-input';
+          inp.type = 'text';
+          inp.maxLength = 1;
+          inp.inputMode = 'numeric';
+          inp.dataset.r = r;
+          inp.dataset.c = c;
+          inp.addEventListener('input', () => {
+            inp.value = inp.value.replace(/[^1-9]/g, '').slice(-1);
+          });
+          td.appendChild(inp);
+        }
+      }
+    }
+
+    function validateSudoku() {
+      const inputs = document.querySelectorAll('.cell-input');
+      let allFilled = true;
+      inputs.forEach(inp => { if (!inp.value) allFilled = false; });
+      if (!allFilled) {
+        const err = document.getElementById('errorMsg');
+        if (err) {
+          err.textContent = 'Fülle zuerst alle Zellen aus! 📝';
+          err.style.display = 'block';
+          setTimeout(() => { err.style.display = 'none'; }, 2500);
+        }
+        return false;
+      }
+      let allCorrect = true;
+      inputs.forEach(inp => {
+        const r = +inp.dataset.r, c = +inp.dataset.c;
+        if (+inp.value !== SOLUTION[r][c]) {
+          allCorrect = false;
+          const td = inp.parentElement;
+          td.classList.remove('flash-wrong');
+          void td.offsetWidth;
+          td.classList.add('flash-wrong');
+          td.addEventListener('animationend', () => td.classList.remove('flash-wrong'), { once: true });
+        }
+      });
+      return allCorrect;
+    }
+
+    document.getElementById('advanceBtn').addEventListener('click', () => {
+      window.location.href = '10.html?u=10';
     });
   </script>
   <script src="../js/puzzle-engine.js"></script>
   <script>
     initPuzzle({
-      number:9, answer:'Note',
-      altAnswers:['note','Musiknote','musiknote','♩','♪'],
-      nextUrl:'10.html',
-      hint:'Schau dir die ausgefüllten Zellen an — der Notenkopf sitzt unten links, der Stiel geht nach oben.'
+      number: 9,
+      answer: '__sudoku__',
+      nextUrl: '10.html',
+      manualAdvance: true,
+      validate: validateSudoku,
+      hint: 'Fang mit den Reihen, Spalten oder Blöcken an, die schon viele Zahlen haben!'
     });
   </script>
 </body></html>
